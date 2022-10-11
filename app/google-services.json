@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "641767121983",
+    "project_id": "armhrdep",
+    "storage_bucket": "armhrdep.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641767121983:android:73e7f74575fd6d620f448a",
+        "android_client_info": {
+          "package_name": "it.mirea.armhrdep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641767121983-m3e2bnln3so10p2e0btf8uhb5g449knt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChSPAH4DQD_2GDiEvl8KjHdU9-QjLCYZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641767121983-m3e2bnln3so10p2e0btf8uhb5g449knt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
