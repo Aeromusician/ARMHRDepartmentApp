@@ -3,5 +3,18 @@
     <string name="login_button">Войти</string>
     <string name="register_button">Зарегестрироваться</string>
     <string name="hello_message">Добро пожаловать!</string>
+    <string name="login_screen_hello_message">Войдите</string>
+    <string name="register_screen_hello_message">Регистрация</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Эл.Адрес</string>
+    <string name="prompt_password">Пароль</string>
+    <string name="action_sign_in">Войдите или зарегестрируйтесь</string>
+    <string name="action_sign_in_short">Войти</string>
+    <string name="welcome">"Добро Пожаловать!"</string>
+    <string name="invalid_username">Неверное имя пользователя</string>
+    <string name="invalid_password">Пароль должен быть > 5 символов</string>
+    <string name="login_failed">"Невозможно авторизоваться"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

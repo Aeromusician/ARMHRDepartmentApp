@@ -1,13 +1,14 @@
 package it.mirea.armhrdep;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.firebase.auth.FirebaseAuth;
+import androidx.fragment.app.ListFragment;
 
 public class MainActivity extends AppCompatActivity {
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +21,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        //Переходить на фрагменты вот так
+
+        //new LoginScreenFragment();
+
+        // Переходить на фрагменты вот так
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fl_container, new ListFragment())
+                .replace(R.id.fl_container, new LoginRegisterScreenFragment())
                 .addToBackStack(null)
                 .commit();
     }
