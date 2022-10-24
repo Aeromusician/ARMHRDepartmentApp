@@ -13,9 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class LoginScreenFragment extends Fragment {
-    String loginMessage;
-    String registerMessage;
+    String loginLineLog;
+    String passwordLineLog;
 
     @Nullable
     @Override
@@ -24,11 +32,28 @@ public class LoginScreenFragment extends Fragment {
         EditText login_line = view.findViewById(R.id.login_line);
         EditText register_line = view.findViewById(R.id.password_line);
         Button loginButton = view.findViewById(R.id.login_button);
+        FirebaseDatabase db;
+        FirebaseAuth auth;
+        DatabaseReference users;
+        auth = FirebaseAuth.getInstance();
+        db = FirebaseDatabase.getInstance();
+        users = db.getReference("users");
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //тут мы в бд проходим по списку и если логин и пароль
-                // совпадают делаем вход и открываем список сотрудников
+                auth.signInWithEmailAndPassword(loginLineLog.trim(), passwordLineLog.trim()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        getParentFragmentManager().beginTransaction().replace(R.id.fl_container, new ListFragment()).
+                                addToBackStack(null).commit();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+
             }
         });
         login_line.addTextChangedListener(new TextWatcher() {
@@ -39,7 +64,7 @@ public class LoginScreenFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                loginMessage = charSequence.toString();
+                loginLineLog = charSequence.toString();
             }
 
             @Override
@@ -55,7 +80,7 @@ public class LoginScreenFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                registerMessage = charSequence.toString();
+                passwordLineLog = charSequence.toString();
             }
 
             @Override
