@@ -19,6 +19,10 @@ public class Employee {
         this.email = email;
     }
 
+    public Employee() {
+
+    }
+
     public String getEmail() {
         return email;
     }
@@ -49,5 +53,15 @@ public class Employee {
 
     public void setSector(String sector) {
         this.sector = sector;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", sector='" + sector + '\'' +
+                '}';
     }
 }
